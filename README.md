@@ -11,4 +11,6 @@
 ### Specifications
 
    This projects specifications include:
-   +  
+   * The die will roll and display random numbers
+      - Example Input: Roll button is clicked.
+      - Example Output: number is 2.
