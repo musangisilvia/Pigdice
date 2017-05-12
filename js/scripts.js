@@ -13,11 +13,11 @@ var Pig = {
             this.turn += die;
         }
         return die;
-    };
+    },
     hold: function() {
         this.switchPlayer();
         this.currentScore = 0;
-    }
+    },
 
     switchPlayer: function() {
         if (this.activePlayer === 1) {
@@ -30,13 +30,10 @@ var Pig = {
     }
 };
 
-Game.prototype.holdScore = function() {
-    this.switchPlayer();
-    this.turn = 0;
-}
-
 
 // front-end
 $(document).ready(function() {
-    document.getElementById("roll").onclick = rollDie();
+    $("button#rollDice").click(function() {
+        rollDice();
+    })
 });
