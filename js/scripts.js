@@ -86,5 +86,15 @@ $(document).ready(function() {
         $("#totalScore2").text(player2.tempScore);
     });
 
+    $("button#hold1").click(function(event) {
+        player1.hold();
+        $("#rollValue1").empty();
+        $("#totalScore1").text(player1.totalScore);
+    });
 
+    $("button#hold2").click(function(event) {
+        player1.hold();
+        $("#rollValue2").empty();
+        $("#totalScore2").text(player1.totalScore);
+    });
 });
