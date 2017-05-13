@@ -24,6 +24,23 @@ Player.prototype.rollOne = function() {
         this.tempScore += this.roll;
     }
 }
+// hold
+Player.prototype.hold = function() {
+    this.scoreTotal += this.tempScore;
+    this.tempScore = 0;
+    // change turn
+    alert(this.playerName + ", your time has passed let someone else play");
+}
+Player.prototype.newGame = function() {
+    this.roll = 0;
+    this.tempScore = 0;
+    this.totalScore = 0;
+    this.playerName = "";
+}
+var clearValues = function() {
+    $(".player1Name").val("");
+    $(".player2Name").val("");
+}
 // user interface
 $(document).ready(function() {
     $("button#start").click(function(event) {
@@ -37,5 +54,21 @@ $(document).ready(function() {
         var player2Name = $("input.player2Name").val();
         $("#player2Name").text(player2Name);
 
+        player1.playerName = player1Name;
+        player2.player2Name = player2Name;
+
+    });
+
+    $("button#newGame").click(function(event) {
+        $(".players").hide();
+        clearValues();
+        player1.newGame();
+        player2.newGame();
+        $("#rollValue1").empty();
+        $("#totalScore1").empty();
+        $("#rollValue2").empty();
+        $("#totalScore2").empty();
+
+        $(".start-menu").show();
     });
 });
