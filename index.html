@@ -12,32 +12,44 @@
 </head>
 
 <body>
-    <div class="container-fluid players">
-        <div class="jumbotron">
-            <center>
-                <h1>Pig Dice</h1></center>
-        </div>
-        <div class="col-md-4 player1">
-            <h3>Player 1:</h3>
-            <p>Total Score:</p>
-            <div class="scoreboard">
-                <div id="player1">
 
-                </div>
+    <div class="jumbotron">
+        <center>
+            <h1>Pig Dice</h1></center>
+
+        <form id="player1">
+            <div class="form-group">
+                <label for="playerName">Player 1 Name: </label>
+                <input required class="player1Name form-control" type="text">
             </div>
-            <button type="button" name="Roll" class="btn btn-inverse" id="rollDice">Roll</button>
-            <button type="button" name="hold" class="btn btn-success">Hold</button>
+        </form>
+        <form id="player2">
+            <div class="form-group">
+                <label for="playerName">Player 2 Name:</label>
+                <input required class="player2Name form-control" type="text">
+            </div>
+        </form>
+        <button id="start" class="btn-info btn">Start Game</button>
+    </div>
+    <div class="container-fluid players">
+
+        <div class="col-md-4 player1">
+            <h3>Player 1:<span id="player1Name"></span></h3>
+
+            <p>Roll Value:<span id="rollValue1"></span></p>
+            <p>Total Score:<span id="totalScore1"></span></p>
+
+            <button type="button" name="roll" class="btn btn-inverse" id="rollDice1">Roll</button>
+            <button type="button" name="hold" class="btn btn-success" id="hold1">Hold</button>
         </div>
         <div class="col-md-4 player2">
-            <h3>Player 2:</h3>
-            <p>Total Score:</p>
-            <div class="scoreboard">
-                <div id="player1">
+            <h3>Player 2:<span id="player2Name"></span></h3>
 
-                </div>
-            </div>
-            <button type="button" name="Roll" class="btn btn-inverse">Roll</button>
-            <button type="button" name="hold" class="btn btn-success">Hold</button>
+            <p>Roll Value:<span id="rollValue2"></span></p>
+            <p>Total Score:<span id="totalScore2"></span></p>
+
+            <button type="button" name="roll" class="btn btn-inverse" id="rollDice2">Roll</button>
+            <button type="button" name="hold" class="btn btn-success" id="hold2">Hold</button>
         </div>
         <div class="col-md-offset-9 rules">
             <h1>Pig Dice Rules</h1>

@@ -1,39 +1,26 @@
-// back-end
-var Pig = {
-    player1: 0,
-    player2: 0,
-    turn: 0,
-    activePlayer: 1,
-    rollDice: function() {
-        var die = Math.floor(Math.random() * 6) + 1;
-        if (roll === 1) {
-            this.turn = 0;
-            this.switchPlayer();
-        } else {
-            this.turn += die;
-        }
-        return die;
-    },
-    hold: function() {
-        this.switchPlayer();
-        this.currentScore = 0;
-    },
+// business logic
+var player1 = "";
+var player2 = "";
 
-    switchPlayer: function() {
-        if (this.activePlayer === 1) {
-            this.player1 += this.turn;
-            this.activePlayer = 2;
-        } else {
-            this.player2 += this.turn;
-            this.activePlayer = 1;
-        }
+var rollDice = function() {
+    return Math.floor(Math.random() * 6) + 1;
+}
+
+function Player(turn) {
+    this.roll = 0;
+    this.tempScore = 0;
+    this.scoreTotal = 0;
+    this.turn = turn;
+    this.playerName;
+}
+
+// checking if player rolled one
+Player.prototype.rollOne = function() {
+    if (this.roll === 1) {
+        this.tempScore = 0;
+        alert("Sorry " + this.playerName + "You rolled ONE, Better luck next time")
+        //switchPlayer
+    } else {
+        this.tempScore += this.roll;
     }
-};
-
-
-// front-end
-$(document).ready(function() {
-    $("button#rollDice").click(function() {
-        rollDice();
-    })
-});
+}
