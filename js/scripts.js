@@ -55,7 +55,7 @@ $(document).ready(function() {
         $("#player2Name").text(player2Name);
 
         player1.playerName = player1Name;
-        player2.player2Name = player2Name;
+        player2.playerName = player2Name;
 
     });
 
@@ -71,4 +71,20 @@ $(document).ready(function() {
 
         $(".start-menu").show();
     });
+
+    $("button#rollDice1").click(function(event) {
+        player1.roll = rollDice();
+        $("#rollValue1").text(player1.roll);
+        player1.rollOne();
+        $("#totalScore1").text(player1.tempScore);
+    });
+
+    $("button#rollDice2").click(function(event) {
+        player2.roll = rollDice();
+        $("#rollValue2").text(player2.roll);
+        player2.rollOne();
+        $("#totalScore2").text(player2.tempScore);
+    });
+
+
 });
