@@ -11,13 +11,15 @@ function Player(turn) {
     this.tempScore = 0;
     this.scoreTotal = 0;
     this.turn = turn;
-    this.playerName;
+    this.activePlayer = 1,
+        this.playerName;
 }
 
 // checking if player rolled one
 Player.prototype.rollOne = function() {
     if (this.roll === 1) {
         this.tempScore = 0;
+        this.changeTurn();
         alert("Sorry " + this.playerName + "You rolled ONE, Better luck next time")
         //switchPlayer
     } else {
@@ -26,10 +28,20 @@ Player.prototype.rollOne = function() {
 }
 // hold
 Player.prototype.hold = function() {
+    this.changeTurn();
     this.scoreTotal += this.tempScore;
     this.tempScore = 0;
-    // change turn
-    alert(this.playerName + ", your time has passed let someone else play");
+    alert(this.playerName + ", You're so kind");
+}
+// change turn
+Player.prototype.changeTurn = function() {
+    if (this.activePlayer === 1) {
+        this.player1 += this.tempScore;
+        this.activePlayer = 2;
+    } else {
+        this.player2 += this.tempScore;
+        this.activePlayer = 1;
+    }
 }
 Player.prototype.newGame = function() {
     this.roll = 0;

@@ -4,6 +4,7 @@
    A game of rolling dice. It is played by two players.
    1. The Computer and A person.
    2. Two People.
+   
    It is written in HTML 5, CSS and JavaScript. JavaScript majorly affects the working of this web application.
 
 ### Specifications
