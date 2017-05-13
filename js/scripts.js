@@ -24,3 +24,12 @@ Player.prototype.rollOne = function() {
         this.tempScore += this.roll;
     }
 }
+// user interface
+$(document).ready(function() {
+    $("button#start").click(function(event) {
+        player1 = new Player(true);
+        player2 = new Player(false);
+        $(".players").show();
+        $(".start-menu").hide();
+    });
+});
