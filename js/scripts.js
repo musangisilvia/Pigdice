@@ -31,5 +31,11 @@ $(document).ready(function() {
         player2 = new Player(false);
         $(".players").show();
         $(".start-menu").hide();
+
+        var player1Name = $("input.player1Name").val();
+        $("#player1Name").text(player1Name);
+        var player2Name = $("input.player2Name").val();
+        $("#player2Name").text(player2Name);
+
     });
 });
