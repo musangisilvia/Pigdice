@@ -52,6 +52,17 @@ var clearValues = function() {
     $(".player1Name").val("");
     $(".player2Name").val("");
 }
+var checkPlayer = function() {
+    var player = Player.activePlayer;
+    if (player === 1) {
+        $("h3#player1Name").css('color', 'green');
+        $("h3#player2Name").css('color', 'blue');
+    } else {
+        $("h3#player2Name").css('color', 'green');
+        $("h3#player1Name").css('color', 'blue');
+    }
+};
+
 // user interface
 $(document).ready(function() {
     $("button#start").click(function(event) {
@@ -68,6 +79,7 @@ $(document).ready(function() {
         player1.playerName = player1Name;
         player2.playerName = player2Name;
 
+
     });
 
     $("button#newGame").click(function(event) {
@@ -83,29 +95,31 @@ $(document).ready(function() {
         $(".start-menu").show();
     });
 
+    checkPlayer();
+
     $("button#rollDice1").click(function(event) {
         player1.roll = rollDice();
         $("#rollValue1").text(player1.roll);
         player1.rollOne();
-        $("#totalScore1").text(player1.tempScore);
+        $("#totalScore1").text(player1.tempScore + player1.scoreTotal);
     });
 
     $("button#rollDice2").click(function(event) {
         player2.roll = rollDice();
         $("#rollValue2").text(player2.roll);
         player2.rollOne();
-        $("#totalScore2").text(player2.tempScore);
+        $("#totalScore2").text(player2.tempScore + player2.scoreTotal);
     });
 
     $("button#hold1").click(function(event) {
         player1.hold();
         $("#rollValue1").empty();
-        $("#totalScore1").text(player1.scoreTotal);
+        $("#totalScore1").text(player1.scoreTotal + player1.tempScore);
     });
 
     $("button#hold2").click(function(event) {
-        player1.hold();
+        player2.hold();
         $("#rollValue2").empty();
-        $("#totalScore2").text(player1.scoreTotal);
+        $("#totalScore2").text(player2.scoreTotal + player2.tempScore);
     });
 });
