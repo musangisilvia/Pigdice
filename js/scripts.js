@@ -6,11 +6,10 @@ var rollDice = function() {
     return Math.floor(Math.random() * 6) + 1;
 }
 
-function Player(turn) {
+function Player(activePlayer) {
     this.roll = 0;
     this.tempScore = 0;
     this.scoreTotal = 0;
-    this.turn = turn;
     this.activePlayer = 1,
         this.playerName;
 }
@@ -46,7 +45,7 @@ Player.prototype.changeTurn = function() {
 Player.prototype.newGame = function() {
     this.roll = 0;
     this.tempScore = 0;
-    this.totalScore = 0;
+    this.scoreTotal = 0;
     this.playerName = "";
 }
 var clearValues = function() {
@@ -101,12 +100,12 @@ $(document).ready(function() {
     $("button#hold1").click(function(event) {
         player1.hold();
         $("#rollValue1").empty();
-        $("#totalScore1").text(player1.totalScore);
+        $("#totalScore1").text(player1.scoreTotal);
     });
 
     $("button#hold2").click(function(event) {
         player1.hold();
         $("#rollValue2").empty();
-        $("#totalScore2").text(player1.totalScore);
+        $("#totalScore2").text(player1.scoreTotal);
     });
 });

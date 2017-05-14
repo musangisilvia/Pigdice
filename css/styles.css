@@ -1,16 +1,29 @@
 body {
     margin: 30px;
+    font-family: 'Amita', cursive;
+    background-color: #BE2C54;
+}
+
+.player {
+    font-size: 24pt;
+}
+
+.buttonStart {
+    padding: 20px;
 }
 
 .jumbotron {
     background-image: url(../img/dicecrazy.gif);
     color: white;
+    font-size: 100px;
 }
 
 .players {
     display: none;
 }
 
-.rules {
+.players .rules {
     background-color: #D3D3D3;
+    font-family: 'Caveat', cursive;
+    font-size: 24pt;
 }
