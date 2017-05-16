@@ -4,7 +4,7 @@
    A game of rolling dice. It is played by two players.
    1. The Computer and A person.
    2. Two People.
-   
+
    It is written in HTML 5, CSS and JavaScript. JavaScript majorly affects the working of this web application.
 
 ### Specifications
@@ -24,3 +24,17 @@
    * The die value, if 1, an alert is diplayed to the user and the score becomes '0'.
       - Example Input: 1
       - Example Output: "Sorry, PlayerName you rolled the number 1"
+   * When one player holds , their buttons are disabled and the turn is passed on to the next player.
+      -Example Input: Player 1 hold.
+      Example Output: Player 1 buttons are disabled, Player 2 buttons are enabled.
+      ![Screenshot](../img/screenshot.png)
+### github
+   1. Click [here](https://github.com/musangisilvia/Pigdice.git) to go to the github repository.
+   2. Copy the link in the **Clone or Download** drop down menu.
+   3. On your terminal, run the command:
+```bash
+$ git clone https://github.com/musangisilvia/Pigdice.git
+```
+   4. Open the folder and run the Index.html file on your Browser.
+
+##### Copyright

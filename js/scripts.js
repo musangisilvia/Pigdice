@@ -20,8 +20,6 @@ Player.prototype.rollOne = function() {
         this.tempScore = 0;
         this.changeTurn();
         alert("Sorry " + this.playerName + "You rolled ONE, Better luck next time");
-        $("button#rollDice2").prop("disabled", true);
-        $("button#hold2").prop("disabled", true);
         //switchPlayer
     } else {
         this.tempScore += this.roll;
@@ -39,9 +37,13 @@ Player.prototype.changeTurn = function() {
     if (this.activePlayer === 1) {
         this.player1 += this.tempScore;
         this.activePlayer = 2;
+        $("button#rollDice1").prop("disabled", true);
+        $("button#hold1").prop("disabled", true);
     } else {
         this.player2 += this.tempScore;
         this.activePlayer = 1;
+        $("button#rollDice2").prop("disabled", true);
+        $("button#hold2").prop("disabled", true);
     }
 }
 Player.prototype.newGame = function() {
