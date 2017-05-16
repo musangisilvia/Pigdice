@@ -27,7 +27,7 @@
    * When one player holds , their buttons are disabled and the turn is passed on to the next player.
       -Example Input: Player 1 hold.
       Example Output: Player 1 buttons are disabled, Player 2 buttons are enabled.
-      ![Screenshot](../img/screenshot.png)
+      ![Screenshot](/img/screenshot.png)
 ### github
    1. Click [here](https://github.com/musangisilvia/Pigdice.git) to go to the github repository.
    2. Copy the link in the **Clone or Download** drop down menu.
