@@ -10,10 +10,9 @@
 ### Specifications
    This projects specifications include:
    * The landing page has a form where the names of the players are filled.
-      - Example Input: Player 1 Name- Silvia
-                       Player 2 Name- Musangi
-      - Example Output: Player 1: Silvia
-                        Player 2: Musangi
+     ![Screenshot](/img/screenshot1.png)
+     
+     ![Screenshot](/img/screenshot2.png)
    * The button new game will clear all values and details of the players in the previous session. new players fill in the form.
    * The die will roll and display random numbers
       - Example Input: Roll button is clicked.

@@ -18,7 +18,6 @@ function Player(activePlayer) {
 Player.prototype.rollOne = function() {
     if (this.roll === 1) {
         this.tempScore = 0;
-        this.changeTurn();
         alert("Sorry " + this.playerName + "You rolled ONE, Better luck next time");
         //switchPlayer
     } else {
@@ -27,31 +26,35 @@ Player.prototype.rollOne = function() {
 }
 // hold
 Player.prototype.hold = function() {
-    this.changeTurn();
     this.scoreTotal += this.tempScore;
     this.tempScore = 0;
     alert(this.playerName + ", You're so kind");
 }
 // change turn
-Player.prototype.changeTurn = function() {
-    if (this.activePlayer === 1) {
+Player.prototype.changeTurn1 = function() {
+    if (this.roll === 1) {
         this.player1 += this.tempScore;
-        this.activePlayer = 2;
         $("button#rollDice1").prop("disabled", true);
         $("button#hold1").prop("disabled", true);
-    } else {
+        $("button#rollDice2").prop("disabled", false);
+        $("button#hold2").prop("disabled", false);
+    }
+};
+Player.prototype.changeTurn2 = function() {
+    if (this.roll === 1) {
         this.player2 += this.tempScore;
-        this.activePlayer = 1;
         $("button#rollDice2").prop("disabled", true);
         $("button#hold2").prop("disabled", true);
+        $("button#rollDice1").prop("disabled", false);
+        $("button#hold1").prop("disabled", false);
     }
-}
+};
 Player.prototype.newGame = function() {
     this.roll = 0;
     this.tempScore = 0;
     this.scoreTotal = 0;
     this.playerName = "";
-}
+};
 var clearValues = function() {
     $(".player1Name").val("");
     $(".player2Name").val("");
@@ -89,24 +92,21 @@ $(document).ready(function() {
         $(".start-menu").show();
     });
 
-
-
     $("button#rollDice1").click(function(event) {
         player1.roll = rollDice();
         $("#rollValue1").text(player1.roll);
         player1.rollOne();
+        player1.changeTurn1();
         $("#totalScore1").text(player1.tempScore + player1.scoreTotal);
-        $("button#rollDice2").prop("disabled", true);
-        $("button#hold2").prop("disabled", true);
     });
 
     $("button#rollDice2").click(function(event) {
         player2.roll = rollDice();
         $("#rollValue2").text(player2.roll);
         player2.rollOne();
+        player2.changeTurn2();
         $("#totalScore2").text(player2.tempScore + player2.scoreTotal);
-        $("button#rollDice1").prop("disabled", true);
-        $("button#hold1").prop("disabled", true);
+
     });
 
     $("button#hold1").click(function(event) {
