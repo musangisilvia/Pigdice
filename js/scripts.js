@@ -1,6 +1,8 @@
 // business logic
 var player1 = "";
 var player2 = "";
+var player1win = "";
+var player2win = "";
 
 var rollDice = function() {
     return Math.floor(Math.random() * 6) + 1;
@@ -10,8 +12,7 @@ function Player(activePlayer) {
     this.roll = 0;
     this.tempScore = 0;
     this.scoreTotal = 0;
-    this.activePlayer = 1,
-        this.playerName;
+    this.playerName;
 }
 
 // checking if player rolled one
@@ -47,6 +48,11 @@ Player.prototype.changeTurn2 = function() {
         $("button#hold2").prop("disabled", true);
         $("button#rollDice1").prop("disabled", false);
         $("button#hold1").prop("disabled", false);
+    }
+};
+Player.prototype.checkScore = function() {
+    if (Player.scoreTotal >= 100) {
+        alert("WE GOT A WINNER!!");
     }
 };
 Player.prototype.newGame = function() {
@@ -98,6 +104,7 @@ $(document).ready(function() {
         player1.rollOne();
         player1.changeTurn1();
         $("#totalScore1").text(player1.tempScore + player1.scoreTotal);
+        player1.checkScore();
     });
 
     $("button#rollDice2").click(function(event) {
@@ -106,13 +113,14 @@ $(document).ready(function() {
         player2.rollOne();
         player2.changeTurn2();
         $("#totalScore2").text(player2.tempScore + player2.scoreTotal);
-
+        player2.checkScore();
     });
 
     $("button#hold1").click(function(event) {
         player1.hold();
         $("#rollValue1").empty();
         $("#totalScore1").text(player1.scoreTotal + player1.tempScore);
+        player1.checkScore();
         $("button#rollDice1").prop("disabled", true);
         $("button#hold1").prop("disabled", true);
         $("button#rollDice2").prop("disabled", false);
@@ -123,6 +131,7 @@ $(document).ready(function() {
         player2.hold();
         $("#rollValue2").empty();
         $("#totalScore2").text(player2.scoreTotal + player2.tempScore);
+        player2.checkScore();
         $("button#rollDice2").prop("disabled", true);
         $("button#hold2").prop("disabled", true);
         $("button#rollDice1").prop("disabled", false);
